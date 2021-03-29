@@ -195,7 +195,7 @@ if($noOfRows){
   }
 
   .order-table th{
-      background: #329fb1;
+      
   }
 
   .order-table td{
@@ -279,17 +279,6 @@ if($noOfRows){
 					<th>Price</th>
 					<th>State</th>
 				</tr>
-
-				<tr>
-					<td>20210324001</td>
-					<td>24-03-2021</td>
-					<td>Porsche 911 Turbo</td>
-					<td>2500000</td>
-					<td>Recieved</td>
-				</tr>
-
-
-
 			</table>
 
 		</div>

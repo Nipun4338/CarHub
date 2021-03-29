@@ -90,7 +90,7 @@ if (isset($_POST["updatebtn"])) {
   if(isset($_POST['registerbtncar']))
   {
       $name = $_POST['car_name'];
-      $brand = $_POST['brand'];
+      $brand = $_POST['brandselect'];
       $model = $_POST['car_model'];
       $seats = $_POST['car_seats'];
       $build = $_POST['car_build'];
@@ -98,6 +98,7 @@ if (isset($_POST["updatebtn"])) {
       $color = $_POST['car_color'];
       $details = $_POST['car_details'];
       $status = $_POST['status'];
+
       $target_dir2="";
       if(!isset($_FILES['file_upload']) || $_FILES['file_upload']['error'] == UPLOAD_ERR_NO_FILE)
       {
@@ -296,4 +297,56 @@ if (isset($_POST["updatebtnuser"])) {
 }
 
 
+
+
+
+if(isset($_POST['registerbtnbrand']))
+{
+    $name = $_POST['brand_name'];
+    $status = $_POST['status'];
+    date_default_timezone_set("Asia/Dhaka");
+    $datetime = '';
+    $datetime=date('Y-m-d H:i:s');
+    $query = "INSERT INTO brand (brand_name,status,created_date,updated_date)
+    VALUES ('$name','$status','$datetime','$datetime')";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        echo "done";
+        $_SESSION['success'] =  "Brand is Added Successfully";
+        header('Location: brand.php');
+    }
+    else
+    {
+        echo "not done";
+        $_SESSION['status'] =  "Brand is Not Added";
+        header('Location: brand.php');
+    }
+
+}
+
+
+if (isset($_POST["updatebtnbrand"])) {
+  $id=$_POST['edit_id_brand'];
+  $name=$_POST['edit_brand_name'];
+  $status=$_POST['edit_status'];
+  date_default_timezone_set("Asia/Dhaka");
+  $datetime = '';
+  $datetime=date('Y-m-d H:i:s');
+  $query="update brand set brand_name='$name',status='$status', updated_date='$datetime' where brand_id='$id'";
+  $query_run=mysqli_query($connection, $query);
+
+  if($query_run)
+  {
+    $_SESSION['success']="Brand data is updated";
+    header('Location: brand.php');
+  }
+  else {
+    $_SESSION['success']="Brand data is not updated";
+    header('Location: brand.php');
+  }
+
+
+}
 ?>

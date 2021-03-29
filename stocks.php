@@ -139,23 +139,23 @@ else {
                                       <select name="make" class="form-control" id="make">
                                           <option value="any">Select Make</option>
 
-                                                                                      <option value="Mercedes-Benz">Mercedes-Benz</option>
-                                                                                      <option value="Porsche">Porsche</option>
-                                                                                      <option value="Land-Rover">Land-Rover</option>
-                                                                                      <option value="Audi">Audi</option>
-                                                                                      <option value="BMW">BMW</option>
-                                                                                      <option value="Jaguar ">Jaguar </option>
-                                                                                      <option value="Volkswagen">Volkswagen</option>
-                                                                                      <option value="MINI ">MINI </option>
-                                                                                      <option value="Volvo ">Volvo </option>
-                                                                                      <option value="Tesla">Tesla</option>
-                                                                                      <option value="Bently">Bently</option>
-                                                                                      <option value="Aston Martin">Aston Martin</option>
-                                                                                      <option value="Alfa Romeo">Alfa Romeo</option>
-                                                                                      <option value="Rolls Royce">Rolls Royce</option>
-                                                                                      <option value="Bentley">Bentley</option>
-                                                                                      <option value="Maserati">Maserati</option>
-                                                                                  </select>
+                                          <option value="Mercedes-Benz">Mercedes-Benz</option>
+                                          <option value="Porsche">Porsche</option>
+                                          <option value="Land-Rover">Land-Rover</option>
+                                          <option value="Audi">Audi</option>
+                                          <option value="BMW">BMW</option>
+                                          <option value="Jaguar ">Jaguar </option>
+                                          <option value="Volkswagen">Volkswagen</option>
+                                          <option value="MINI ">MINI </option>
+                                          <option value="Volvo ">Volvo </option>
+                                          <option value="Tesla">Tesla</option>
+                                          <option value="Bently">Bently</option>
+                                          <option value="Aston Martin">Aston Martin</option>
+                                          <option value="Alfa Romeo">Alfa Romeo</option>
+                                          <option value="Rolls Royce">Rolls Royce</option>
+                                          <option value="Bentley">Bentley</option>
+                                          <option value="Maserati">Maserati</option>
+                                      </select>
                                   <h3>Model</h3>
                                       <select name="model" class="form-control" id="model">
                                           <option value="any">Select Model</option>
@@ -215,7 +215,7 @@ else {
                                   <div class="clearfix"></div>
 
                                   <script>function searchCheckSects(){if($('#searchbox .carsect:checked').length>0){$('#searchbox .carsect:not(:checked)').attr("disabled",true);}else{$('#searchbox .carsect').attr("disabled",false);}}searchCheckSects();</script>
-                                  <button type="submit" id="form-submit">Search Now</button>
+                                  <button type="submit" name="search" id="form-submit">Search Now</button>
                                   <div id="counter"><span></span></div>
                               </div>
                               <ul id="advanced">

@@ -203,7 +203,21 @@ if (isset($_SESSION["username"]))
     <div class="container-fluid">
       <div class="row">
         <?php foreach ($data as $row) {
+          $b=$row['car_brand_id'];
+          $sql1="SELECT * FROM brand where brand_id=$b";
+          $result1=mysqli_query($link,$sql1) or die(mysqli_error($link));
+          $data1=array();
+          $noOfRows1=mysqli_num_rows($result1);
+          if($noOfRows1){
+            while($row1=mysqli_fetch_assoc($result1)){
 
+                /*echo "<pre>";
+                print_r($row);*/
+                array_push($data1,$row1);
+                //echo "</pre>";
+
+            }
+          }
         ?>
         <div class="col-md-6 col-lg-6" style="margin: 15px">
           <div class="main_view">
@@ -221,6 +235,12 @@ if (isset($_SESSION["username"]))
           <div class="row">
             <div class="col-sm-12 col-lg-12 col-md-12">
               <ul class="info" style="text-align: left">
+                <?php foreach ($data1 as $row1) { ?>
+                <li>
+                  <span style="font-weight: bold">Brand:   </span>
+                  <?php echo $row1['brand_name'];?>
+                </li>
+              <?php } ?>
                 <li>
                   <span style="font-weight: bold">Model:   </span>
                   <?php echo $row['car_model'];?>

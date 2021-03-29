@@ -68,6 +68,11 @@
     <i class="fas fa-fw fa-chart-area"></i>
     <span>Slide Info</span></a>
 </li>
+<li class="nav-item">
+  <a class="nav-link" href="brand.php">
+    <i class="fas fa-fw fa-chart-area"></i>
+    <span>Brand Info</span></a>
+</li>
 
 
 
