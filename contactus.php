@@ -28,7 +28,7 @@ if (isset($_POST["submit"])) {
     $email=$_SESSION['username'];
 
     $sql="SELECT * FROM user where email='$email'";
-    $result=mysqli_query($link,$sql);
+    $result=mysqli_query($connection,$sql);
     $data=array();
     $noOfRows=mysqli_num_rows($result);
     if($noOfRows){

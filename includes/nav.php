@@ -1,8 +1,8 @@
 <nav class = "navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 
 	 <div class="container-fluid">
-	 <a class = "navbar-brand"><img src="assets/logu.png">
-	 <span class = "navbar-text">CARHUB</span></a>
+	 <a href="homepage.php" class = "navbar-brand"><img src="assets/logu.png">
+	</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 	</button>

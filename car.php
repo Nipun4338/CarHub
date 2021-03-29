@@ -1,6 +1,7 @@
 
 <?php
 session_start();
+ob_start();
 $host="localhost";
 $user="root";
 $password="";
@@ -19,6 +20,7 @@ $sql="";
 if (isset($_SESSION["username"]))
 {
  $sql="SELECT * FROM cars where car_id=$car";
+ $_SESSION['car']=$car;
 }
 else {
   $sql="SELECT * FROM cars where car_id=$car and status=0";
@@ -34,10 +36,102 @@ if($noOfRows){
       print_r($row);*/
       array_push($data,$row);
       //echo "</pre>";
-    
+
   }
 }
-?>
+
+function fetch_data()
+ {
+     $host="localhost";
+     $user="root";
+     $password="";
+     $db="carhub";
+     $car= $_SESSION['car'];
+
+     $link=mysqli_connect($host,$user,$password,$db);
+     $sql="SELECT * FROM cars where car_id=$car";
+     $result=mysqli_query($link,$sql) or die(mysqli_error($link));
+      while($row = mysqli_fetch_array($result))
+      {
+        $image='"'.$row["car_image"].'"';
+      $output = '
+      <img style="float:center" src='.$image.' /><br />
+      <table border="0" cellspacing="0" cellpadding="5">
+
+      <tr>
+                          <th style="font-weight:bold">Name</th>
+                          <td>'.$row["car_name"].'</td>
+                </tr>
+                <tr>
+                          <th style="font-weight:bold">Model</th>
+                          <td>'.$row["car_model"].'</td>
+                </tr>
+                <tr>
+                          <th style="font-weight:bold">Build</th>
+                          <td>'.$row["car_build"].'</td>
+                </tr>
+                <tr>
+                        <th style="font-weight:bold">Doors</th>
+                        <td>'.$row["car_doors"].'</td>
+                </tr>
+                <tr>
+                        <th style="font-weight:bold">Color</th>
+                        <td>'.$row["car_color"].'</td>
+                </tr>
+                <tr>
+                        <th style="font-weight:bold">Seat</th>
+                        <td>'.$row["car_seats"].'</td>
+                </tr>
+                <tr>
+                        <th style="font-weight:bold">Details</th>
+                        <td>'.$row["car_details"].'</td>
+                </tr>
+                <tr>
+                        <th style="font-weight:bold">Cost</th>
+                        <td>'.$row["car_cost"].' /=</td>
+                </tr>
+                </table>
+                          ';
+      }
+      return $output;
+ }
+
+if (isset($_SESSION["username"]))
+{
+  if(isset($_POST["create_pdf"]))
+   {
+        require_once('tcpdf.php');
+        $obj_pdf = new TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+        $obj_pdf->SetCreator(PDF_CREATOR);
+        $obj_pdf->SetTitle("Carhub");
+        $obj_pdf->SetHeaderData('', '', PDF_HEADER_TITLE, PDF_HEADER_STRING);
+        $obj_pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $obj_pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+        $obj_pdf->SetDefaultMonospacedFont('helvetica');
+        $obj_pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+        $obj_pdf->SetMargins(PDF_MARGIN_LEFT, '5', PDF_MARGIN_RIGHT);
+        $obj_pdf->setPrintHeader(false);
+        $obj_pdf->setPrintFooter(false);
+        $obj_pdf->SetAutoPageBreak(TRUE, 10);
+        $obj_pdf->SetFont('helvetica', '', 12);
+        $obj_pdf->AddPage();
+        $content = '';
+        $content .= '
+        <div class="container-fluid">
+     	 <a class = "navbar-brand"><img src="assets/logu.png"></a>
+       </div><br />
+
+        ';
+        $content .= fetch_data();
+      //  $content .= '</table>';
+        $obj_pdf->writeHTML($content);
+        $obj_pdf->Output('sample.pdf', 'I');
+
+   }
+ }
+ ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -160,6 +254,9 @@ if($noOfRows){
                 </li>
 
             </ul>
+            <form method="post">
+                          <input type="submit" name="create_pdf" class="btn btn-danger" value="Print" />
+                     </form>
             </div>
           </div>
 
