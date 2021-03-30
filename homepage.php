@@ -50,7 +50,7 @@ session_start();
            // code...
         ?>
         <div id class="slide active img-responsive" style="background-image: url('assets/<?php echo $row[0];?>')">
-            <<div class="container">
+            <div class="container">
                 <div class="caption">
                     <!--<h1 style="color:#FFFFFF"><?php echo $row[1];?></h1>
                     <p style="color:#FFFFFF"><?php echo $row[2];?></p>-->
