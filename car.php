@@ -125,7 +125,7 @@ if (isset($_SESSION["username"]))
         $content .= fetch_data();
       //  $content .= '</table>';
         $obj_pdf->writeHTML($content);
-        $obj_pdf->Output('sample.pdf', 'I');
+        $obj_pdf->Output('CarDetails.pdf', 'I');
 
    }
  }
