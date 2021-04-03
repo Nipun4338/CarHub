@@ -49,6 +49,7 @@ if($noOfRows){
 <script src="/path/to/bootstrap.min.js"></script>
 <!-- <a href="https://www.jqueryscript.net/tags.php?/Carousel/">Carousel</a> Extension -->
 <script src="carousel.js"></script>
+
 </head>
 
 
@@ -120,54 +121,63 @@ if($noOfRows){
 
 
 <style type="text/css">h2{color: #ffff;}</style>
+<?php $sql="SELECT * FROM cars";
+$result1=mysqli_query($link,$sql) or die(mysqli_error($link));
+$data1=array();
+$noOfRows1=mysqli_num_rows($result1);
+if($noOfRows1){
+  while($row1=mysqli_fetch_assoc($result1)){
+
+      array_push($data1,$row1);
+
+  }
+}
+
+ ?>
+
 
 
 <section id="home-featured">
- <div class="container">
+ <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <img class="featured-icon" src="assets/featured logo.png" alt="Featured Icon">
-                <h1 class="title"><b>FEATURED</b></h1>
+                <h1 class="title" style="color:#fff"><b>FEATURED</b></h1>
 
 
-								<div class="row mx-auto my-auto">
-					<div id="myCarousel" class="carousel slide w-100" data-ride="carousel" >
-							<div class="carousel-inner w-100" role="listbox">
-									<div class="carousel-item active">
-											<div class="col-lg-4 col-md-6">
-													<img class="img-fluid" src="assets/Porsche718.jpg">
-													<a href="">Porsche 718 Boxter 2019</a>
-											</div>
-									</div>
-									<div class="carousel-item">
-											<div class="col-lg-4 col-md-6">
-													<img class="img-fluid" src="assets/range rover.jpg">
-													<a href="">Range Rover 2020</a>
-											</div>
-									</div>
-									<div class="carousel-item">
-											<div class="col-lg-4 col-md-6">
-													<img class="img-fluid" src="assets/McLaren p1.jpg">
-													<a href="">McLaren P1</a>
-											</div>
-									</div>
-									<div class="carousel-item">
-											<div class="col-lg-4 col-md-6">
-													<img class="img-fluid" src="assets/mercedes class a.jpg">
-													<a href="">Mercedes Benz Class A</a>
-											</div>
-									</div>
-							</div>
-							<a class="carousel-control-prev bg-dark w-auto" href="#myCarousel" role="button" data-slide="prev">
-									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <div class="container-fluid">
+    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
+        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+          <div class="carousel-item active">
+              <div class="col-lg-4 col-md-6">
+                  <img class="img-fluid" src="assets/logu.png" style='height: 90%%; width: 100%; object-fit: cover'>
+              </div>
+          </div>
+          <?php
+            foreach ($data1 as $row1) {
+              // code...
+           ?>
+          <div class="carousel-item">
+              <div class="col-lg-4 col-md-6">
+                  <img class="img-fluid" src="<?php echo $row1['car_image'];?>" style='height: 90%; width: 100%; object-fit: cover'>
+                  <a href="car.php?car=<?php echo $row1['car_id']?>"><?php echo $row1['car_name'];?></a>
+              </div>
+          </div>
+          <?php
+            }
+           ?>
+        </div>
+        <a class="carousel-control-prev bg-dark w-auto" href="#carouselExample" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
-							</a>
-							<a class="carousel-control-next bg-dark w-auto" href="#myCarousel" role="button" data-slide="next">
-									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next bg-dark w-auto" href="#carouselExample" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
-							</a>
-					</div>
-			</div>
+        </a>
+    </div>
+</div>
+
 
 	<!--scripts loaded here-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
