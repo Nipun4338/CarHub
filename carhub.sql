@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Apr 03, 2021 at 03:44 PM
+=======
+-- Generation Time: Mar 30, 2021 at 12:43 PM
+>>>>>>> 7fb075081935444990d770b8a9956a7c2ee485b9
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -182,6 +186,7 @@ CREATE TABLE `slider1` (
 --
 
 INSERT INTO `slider1` (`slider_id`, `image`, `header`, `paragraph`, `status`, `created_date`, `updated_date`) VALUES
+<<<<<<< HEAD
 (2, 'images/slides/range-rover-evoque-1.jpg', 'Winter Collection 2021', 'Come and Get it!', 1, '2021-04-03 18:31:09', '2021-04-03 19:28:13'),
 (3, 'images/slides/1.jpg', 'Winter Collection 2020', 'Come and Get it!', 1, '2021-04-03 18:31:09', '2021-04-03 18:31:09'),
 (4, 'images/slides/2.gif', 'Winter Collection 2020', 'Come and Get it!', 1, '2021-04-03 18:31:09', '2021-04-03 18:31:09'),
@@ -209,6 +214,9 @@ INSERT INTO `slider2` (`slider_id`, `image`, `status`, `created_date`, `updated_
 (1, 'assets/mercedes-benz-s-class.jpeg', 1, '2021-04-03 18:41:02', '2021-04-03 18:41:02'),
 (2, 'assets/2020-Range-Rover-Interior-1.png', 1, '2021-04-03 18:41:02', '2021-04-03 18:41:02'),
 (3, 'assets/4.jpg', 1, '2021-04-03 18:41:02', '2021-04-03 18:41:02');
+=======
+(1, 'range-rover-evoque-1.jpg', 'Winter Collection 2020', 'Lorem ipsum dummy text goes here.', 1, '2021-03-21 15:15:01', '2021-03-21 15:15:01');
+>>>>>>> 7fb075081935444990d770b8a9956a7c2ee485b9
 
 -- --------------------------------------------------------
 
@@ -297,12 +305,15 @@ ALTER TABLE `slider1`
   ADD PRIMARY KEY (`slider_id`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `slider2`
 --
 ALTER TABLE `slider2`
   ADD PRIMARY KEY (`slider_id`);
 
 --
+=======
+>>>>>>> 7fb075081935444990d770b8a9956a7c2ee485b9
 -- Indexes for table `team`
 --
 ALTER TABLE `team`
@@ -346,6 +357,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `slider1`
 --
 ALTER TABLE `slider1`
+<<<<<<< HEAD
   MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
@@ -353,6 +365,9 @@ ALTER TABLE `slider1`
 --
 ALTER TABLE `slider2`
   MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> 7fb075081935444990d770b8a9956a7c2ee485b9
 
 --
 -- AUTO_INCREMENT for table `team`
