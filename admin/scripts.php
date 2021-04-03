@@ -349,4 +349,188 @@ if (isset($_POST["updatebtnbrand"])) {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(isset($_POST['registerbtnslider1']))
+{
+    $header = $_POST['header'];
+    $paragraph = $_POST['paragraph'];
+    $status = $_POST['status'];
+    $target_dir2="";
+    if(!isset($_FILES['file_upload']) || $_FILES['file_upload']['error'] == UPLOAD_ERR_NO_FILE)
+    {
+      $target_dir2="images/team/default-image.jpg";
+    }
+    else{
+      $name=$_FILES['file_upload']['name'];
+      $userFileName='slider_pic_'.$name;
+       $imageType=strtolower(pathinfo($_FILES['file_upload']['name'], PATHINFO_EXTENSION));
+       $target_dir="../images/slides/".$userFileName;
+       $target_dir2="images/slides/".$userFileName;
+       $target_file=$target_dir;
+       $temp_file=$_FILES['file_upload']['tmp_name'];
+       move_uploaded_file($temp_file, $target_file);
+    }
+    date_default_timezone_set("Asia/Dhaka");
+    $datetime = '';
+    $datetime=date('Y-m-d H:i:s');
+    $query = "INSERT INTO slider1 (header,paragraph,image,status,created_date,updated_date)
+    VALUES ('$header','$paragraph','$target_dir2','$status','$datetime','$datetime')";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        echo "done";
+        $_SESSION['success'] =  "Image is Added Successfully";
+        header('Location: slider1.php');
+    }
+    else
+    {
+        echo "not done";
+        $_SESSION['status'] =  "Image is Not Added";
+        header('Location: slider1.php');
+    }
+
+}
+
+
+if (isset($_POST["updatebtnslider1"])) {
+  $id=$_POST['edit_id_slider1'];
+  $header=$_POST['edit_header'];
+  $paragraph=$_POST['edit_paragraph'];
+  $status=$_POST['edit_status'];
+  $image=$_POST['edit_image'];
+  date_default_timezone_set("Asia/Dhaka");
+  $datetime = '';
+  $datetime=date('Y-m-d H:i:s');
+  if(!isset($_FILES['file_upload']) || $_FILES['file_upload']['error'] == UPLOAD_ERR_NO_FILE)
+  {
+    $target_dir2=$image;
+  }
+  else{
+
+    $name=$_FILES['file_upload']['name'];
+    $userFileName='slider_pic_'.$name;
+     $imageType=strtolower(pathinfo($_FILES['file_upload']['name'], PATHINFO_EXTENSION));
+     $target_dir="../images/slides/".$userFileName;
+     $target_dir2="images/slides/".$userFileName;
+     $target_file=$target_dir;
+     $temp_file=$_FILES['file_upload']['tmp_name'];
+     move_uploaded_file($temp_file, $target_file);
+  }
+  $query="update slider1 set header='$header',paragraph='$paragraph',image='$target_dir2',status='$status', updated_date='$datetime' where slider_id='$id'";
+  $query_run=mysqli_query($connection, $query);
+
+  if($query_run)
+  {
+    $_SESSION['success']="Slider data is updated";
+    header('Location: slider1.php');
+  }
+  else {
+    $_SESSION['success']="Slider data is not updated";
+    header('Location: slider1.php');
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+if(isset($_POST['registerbtnslider2']))
+{
+
+    $status = $_POST['status'];
+    $target_dir2="";
+    if(!isset($_FILES['file_upload']) || $_FILES['file_upload']['error'] == UPLOAD_ERR_NO_FILE)
+    {
+      $target_dir2="images/team/default-image.jpg";
+    }
+    else{
+      $name=$_FILES['file_upload']['name'];
+      $userFileName='slider_pic_'.$name;
+       $imageType=strtolower(pathinfo($_FILES['file_upload']['name'], PATHINFO_EXTENSION));
+       $target_dir="../assets/".$userFileName;
+       $target_dir2="assets/".$userFileName;
+       $target_file=$target_dir;
+       $temp_file=$_FILES['file_upload']['tmp_name'];
+       move_uploaded_file($temp_file, $target_file);
+    }
+    date_default_timezone_set("Asia/Dhaka");
+    $datetime = '';
+    $datetime=date('Y-m-d H:i:s');
+    $query = "INSERT INTO slider2 (image,status,created_date,updated_time)
+    VALUES ('$target_dir2','$status','$datetime','$datetime')";
+    $query_run = mysqli_query($connection, $query);
+
+    if($query_run)
+    {
+        echo "done";
+        $_SESSION['success'] =  "Image is Added Successfully";
+        header('Location: slider2.php');
+    }
+    else
+    {
+        echo "not done";
+        $_SESSION['status'] =  "Image is Not Added";
+        header('Location: slider2.php');
+    }
+
+}
+
+
+if (isset($_POST["updatebtnslider2"])) {
+  $id=$_POST['edit_id_slider2'];
+  $status=$_POST['edit_status'];
+  $image=$_POST['edit_image'];
+  date_default_timezone_set("Asia/Dhaka");
+  $datetime = '';
+  $datetime=date('Y-m-d H:i:s');
+  if(!isset($_FILES['file_upload']) || $_FILES['file_upload']['error'] == UPLOAD_ERR_NO_FILE)
+  {
+    $target_dir2=$image;
+  }
+  else{
+
+    $name=$_FILES['file_upload']['name'];
+    $userFileName='slider_pic_'.$name;
+     $imageType=strtolower(pathinfo($_FILES['file_upload']['name'], PATHINFO_EXTENSION));
+     $target_dir="../assets/".$userFileName;
+     $target_dir2="assets/".$userFileName;
+     $target_file=$target_dir;
+     $temp_file=$_FILES['file_upload']['tmp_name'];
+     move_uploaded_file($temp_file, $target_file);
+  }
+  $query="update slider2 set image='$target_dir2',status='$status', updated_time='$datetime' where slider_id='$id'";
+  $query_run=mysqli_query($connection, $query);
+
+  if($query_run)
+  {
+    $_SESSION['success']="Slider data is updated";
+    header('Location: slider2.php');
+  }
+  else {
+    $_SESSION['success']="Slider data is not updated";
+    header('Location: slider2.php');
+  }
+
+
+}
+
 ?>

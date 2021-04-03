@@ -1,14 +1,30 @@
+
+<?php session_start(); ?>
 <?php
-session_start();
-    $fileLocation='1stslider.csv';
-    $fileUrl=$fileLocation;
-    $check1=0;
-    $file_handle=fopen($fileUrl, 'r');
-    $a=array();
-    while (($csv_line = fgetcsv($file_handle,1024)) && $csv_line[0]) {
-      $resArray[]=$csv_line;
+$host="localhost";
+$user="root";
+$password="";
+$db="carhub";
+
+$link=mysqli_connect($host,$user,$password,$db);
+
+
+$sql="SELECT * FROM slider1";
+$result=mysqli_query($link,$sql);
+$data=array();
+$noOfRows=mysqli_num_rows($result);
+if($noOfRows){
+  while($row=mysqli_fetch_assoc($result)){
+    if($row['status']==1)
+    {
+      /*echo "<pre>";
+      print_r($row);*/
+      array_push($data,$row);
+      //echo "</pre>";
     }
-    fclose($file_handle);
+  }
+}
+
 ?>
 
 
@@ -68,14 +84,14 @@ session_start();
   <section class="home">
      <div class="slider">
        <?php
-         foreach ($resArray as $row) {
+         foreach ($data as $row) {
            // code...
         ?>
-        <div class="slide active img-responsive" style="background-image: url('images/<?php echo $row[0];?>')" alt="Responsive image">
+        <div class="slide active img-responsive" style="background-image: url('<?php echo $row['image'];?>')" alt="Responsive image">
             <div class="container">
                 <div class="caption">
-                    <h1 style="color:#FFFFFF"><?php echo $row[1];?></h1>
-                    <p style="color:#FFFFFF"><?php echo $row[2];?></p>
+                    <h1 style="color:#FFFFFF"><?php echo $row["header"];?></h1>
+                    <p style="color:#FFFFFF"><?php echo $row["paragraph"];?></p>
                     <a href="homepage.php" class="button"><span>Shop Now</span></a>
                 </div>
             </div>
