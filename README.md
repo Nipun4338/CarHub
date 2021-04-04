@@ -6,5 +6,6 @@ Frontend  | Backend
 Html  | PHP
 CSS  | SQL
 Javascript | TCPDF
+Bootstrap | JQuery
 
 Details: https://youtu.be/VVzTLraYrTI
