@@ -7,3 +7,4 @@ Html  | PHP
 CSS  | SQL
 Javascript | TCPDF
 
+Details: https://youtu.be/VVzTLraYrTI
