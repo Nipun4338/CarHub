@@ -5,4 +5,5 @@ Frontend  | Backend
 ------------- | -------------
 Html  | PHP
 CSS  | SQL
-Jscript |
+Javascript | TCPDF
+
