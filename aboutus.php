@@ -34,11 +34,8 @@ if($noOfRows){
 
 	  <link rel="stylesheet" href="A.assets,,_royalslider,,_royalslider.css+assets,,_royalslider,,_skins,,_default,,_rs-default.css+assets,,_royalslider,,_skins,,_minimal-white,,_rs-minimal-white.css+css,,_bootstrap.min.css+css,,_normalize.css+css,,_jquery-ui.css,Mcc.y-DhrddGnN.css.pagespeed.cf.Hfy0poW2iH.css"/>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./stars.css">
-    <link rel="stylesheet" href="line1.css">
-	<link rel="stylesheet" href="style2.css">
 
+	<link rel="stylesheet" href="style2.css">
 
 
 
