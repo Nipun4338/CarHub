@@ -3,6 +3,7 @@ include("security.php");
 
 include('includes/header.php');
 include('includes/navbar.php');
+include('database/dbconfig.php');
 ?>
 
 
@@ -32,7 +33,6 @@ include('includes/navbar.php');
                <?php
 
                 $query="select admin_id from adminpanel order by admin_id";
-                $connection = mysqli_connect("localhost","root","","carhub");
                 $query_run=mysqli_query($connection, $query);
                 $row=mysqli_num_rows($query_run);
                 echo "<h1>".$row."</h1>";
@@ -62,7 +62,6 @@ include('includes/navbar.php');
                <?php
 
                 $query="select car_id from cars order by car_id";
-                $connection = mysqli_connect("localhost","root","","carhub");
                 $query_run=mysqli_query($connection, $query);
                 $row=mysqli_num_rows($query_run);
                 echo "<h1>".$row."</h1>";
@@ -92,7 +91,6 @@ include('includes/navbar.php');
                <?php
 
                 $query="select customer_id from user order by customer_id";
-                $connection = mysqli_connect("localhost","root","","carhub");
                 $query_run=mysqli_query($connection, $query);
                 $row=mysqli_num_rows($query_run);
                 echo "<h1>".$row."</h1>";
@@ -124,7 +122,6 @@ include('includes/navbar.php');
                <?php
 
                 $query="select brand_id from brand order by brand_id";
-                $connection = mysqli_connect("localhost","root","","carhub");
                 $query_run=mysqli_query($connection, $query);
                 $row=mysqli_num_rows($query_run);
                 echo "<h1>".$row."</h1>";

@@ -2,13 +2,7 @@
 include("security.php");
 include('includes/header.php');
 include('includes/navbar.php');
-
-$host="localhost";
-$user="root";
-$password="";
-$db="carhub";
-
-$link=mysqli_connect($host,$user,$password,$db);
+include('database/dbconfig.php');
 $sql="SELECT * FROM brand";
 $result=mysqli_query($link,$sql) or die(mysqli_error($link));
 $data=array();
@@ -49,7 +43,7 @@ if($noOfRows){
 
                 <select name="brandselect" class="form-select" aria-label="Default select example">
                   <?php foreach($data as $row){
-                    
+
                   ?>
                   <option value="<?php echo $row['brand_id']; ?>"><?php echo $row['brand_name'] ?></option>
                 <?php } ?>
@@ -130,7 +124,6 @@ if($noOfRows){
 
     <div class="table-responsive">
       <?php
-      $connection = mysqli_connect("localhost","root","","carhub");
       $query = "SELECT * FROM cars";
       $query_run = mysqli_query($connection, $query);
   ?>

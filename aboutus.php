@@ -1,13 +1,6 @@
 <?php session_start(); ?>
 <?php
-$host="localhost";
-$user="root";
-$password="";
-$db="carhub";
-
-$link=mysqli_connect($host,$user,$password,$db);
-
-
+include('database/dbconfig.php');
 $sql="SELECT * FROM aboutus";
 $result=mysqli_query($link,$sql);
 $data=array();

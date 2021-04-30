@@ -1,11 +1,11 @@
 <?php
 include("security.php");
+include('database/dbconfig.php');
 
 if (isset($_POST["login"])) {
     $email_login=$_POST['email'];
     $password_login=md5($_POST['password']);
     $query="select * from user where email='$email_login' and password='$password_login'";
-    $connection = mysqli_connect("localhost","root","","carhub");
     $query_run=mysqli_query($connection, $query);
     $data=array();
     $noOfRows=mysqli_num_rows($query_run);

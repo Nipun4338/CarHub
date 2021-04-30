@@ -1,11 +1,6 @@
 <?php session_start(); ?>
 <?php
-
-$host="localhost";
-$user="root";
-$password="";
-$db="carhub";
-$link=mysqli_connect($host,$user,$password,$db);
+include('database/dbconfig.php');
 date_default_timezone_set("Asia/Dhaka");
 $datetime = '';
     if(isset($_REQUEST['submit']))

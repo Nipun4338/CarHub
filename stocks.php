@@ -1,12 +1,6 @@
 <?php session_start(); ?>
 <?php
-$host="localhost";
-$user="root";
-$password="";
-$db="carhub";
-
-$link=mysqli_connect($host,$user,$password,$db);
-
+include('database/dbconfig.php');
 if(!empty($_GET["page"])){
 $page=$_GET["page"];
 }

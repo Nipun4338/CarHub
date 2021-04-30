@@ -1,13 +1,9 @@
 <?php
 include("security.php");
+include('database/dbconfig.php');
 ?>
 <?php
-$host="localhost";
-$user="root";
-$password="";
-$db="carhub";
 
-$link=mysqli_connect($host,$user,$password,$db);
 $email=$_SESSION['username'];
 
 $sql="SELECT * FROM user where email='$email'";
@@ -195,7 +191,7 @@ if($noOfRows){
   }
 
   .order-table th{
-      
+
   }
 
   .order-table td{

@@ -3,6 +3,7 @@
     {
         include("security.php");
     }
+    include('database/dbconfig.php');
 ?>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -23,9 +24,6 @@
 
 
   <?php
-
-$connection = mysqli_connect("localhost","root","","carhub");
-
 if(isset($_POST['registerbtn']))
 {
     $username = $_POST['username'];

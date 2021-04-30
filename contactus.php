@@ -1,8 +1,9 @@
-<?php session_start(); ?>
+<?php session_start();
+include('database/dbconfig.php'); ?>
 <?php
 
 if (isset($_POST["submit"])) {
-  $connection = mysqli_connect("localhost","root","","carhub");
+
   if (!isset($_SESSION["username"]))
   {
     $name=$_POST['name'];

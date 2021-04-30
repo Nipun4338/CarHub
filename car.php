@@ -2,13 +2,7 @@
 <?php
 session_start();
 ob_start();
-$host="localhost";
-$user="root";
-$password="";
-$db="carhub";
-
-$link=mysqli_connect($host,$user,$password,$db);
-
+include('database/dbconfig.php');
 if(!empty($_GET["car"])){
 $car=$_GET["car"];
 }
@@ -42,13 +36,7 @@ if($noOfRows){
 
 function fetch_data()
  {
-     $host="localhost";
-     $user="root";
-     $password="";
-     $db="carhub";
-     $car= $_SESSION['car'];
 
-     $link=mysqli_connect($host,$user,$password,$db);
      $sql="SELECT * FROM cars where car_id=$car";
      $result=mysqli_query($link,$sql) or die(mysqli_error($link));
       while($row = mysqli_fetch_array($result))

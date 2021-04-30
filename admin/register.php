@@ -2,6 +2,7 @@
 include("security.php");
 include('includes/header.php');
 include('includes/navbar.php');
+include('database/dbconfig.php');
 ?>
 
 
@@ -75,7 +76,6 @@ include('includes/navbar.php');
 
     <div class="table-responsive">
       <?php
-      $connection = mysqli_connect("localhost","root","","carhub");
       $query = "SELECT * FROM adminpanel";
       $query_run = mysqli_query($connection, $query);
   ?>
