@@ -5,11 +5,11 @@ if(!empty($_GET["page"])){
 $page=$_GET["page"];
 }
 else {
-  $page=0;
+  $page=1;
 }
 if($page=="" || $page==1)
 {
-  $page1=0;
+  $page1=1;
 }
 else {
   $page1=($page*9)-9;
