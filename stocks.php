@@ -5,7 +5,7 @@ if(!empty($_GET["page"])){
 $page=$_GET["page"];
 }
 else {
-  $page=1;
+  $page="";
 }
 if($page=="" || $page==1)
 {
